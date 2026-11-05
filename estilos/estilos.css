@@ -1,0 +1,158 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f9;
+}
+
+/* Barra del menu de navegacion */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Estilo de los botones del Menu */
+nav ul li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 25px;
+    transition: all 0.3s ease; /* Suaviza la animacion al pasar el mouse */
+}
+
+/* Interactividad al acercar el puntero */
+nav ul li a:hover {
+    transform: translateY(-3px); /* Eleva ligeramente el boton */
+    background-color: #007acc;
+}
+
+/* Animacion al abrir cada pagina */
+main {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    animation: aparecer 0.6s ease-out;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    animation: aparecer 0.6s ease-out;
+}
+
+/* Apartado de "conocimientos.html" */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+thead {
+    background-color: #007acc;
+    color: white;
+}
+
+tbody tr:hover {
+    background-color: #e6f2ff; /* Ilumina la fila al acercar el cursor */
+    transition: background-color 0.2 ease;
+}
+
+tfoot {
+    background-color: #f4f4f9;
+    font-weight: bold;
+}
+
+/* Apartado de practicas.html */
+.practica {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    transition: transform 0.3 ease, box-shadow 0.3 ease;
+}
+
+.practica:hover {
+    transform: scale(1.02); /* Hace un ligero zoom al acercar el puntero */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Apartado de contacto.html */
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Animacion al pasar el cursor o hacer clic para escribir */
+input[type="text"]:hover,
+input[type="email"]:hover,
+select:hover,
+textarea:hover,
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #007acc;
+    box-shadow: 0 0 8px rgba(0, 122, 204, 0.3);
+    transform: translateY();
+    outline: none;
+}
+
+/* Estilo para los botones de Enviar y Borrar */
+button {
+    background-color: #222;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    margin-right: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #007acc;
+    transform: translateY(-3px);
+}
+
+/* Pie de pagina */
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    border-top: 3px solid #007acc;
+    animation: aparecer 0.8s ease-out; /* Entra suavemente al cargar */
+    transition: all 0.3s ease; /* Suaviza el efecto al acercar el cursor */
+}
+
+footer:hover {
+    background-color: #111a24;
+    transform: translateY(-3px);
+}
