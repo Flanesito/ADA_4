@@ -29,6 +29,7 @@
                     <li> <a href="conocimientos.html">Conocimientos Sobre La Web</a> </li>
                     <li> <a href="practicas.html">Practicas Web</a> </li>
                     <li> <a href="contacto.html">Contacto</a> </li>
+                    <li><a href="panel_servidor.php">Servidor BD</a></li>
 
 
                 </ul>
@@ -42,12 +43,12 @@
            <h1>Contacto</h1>
            <p>Déjame un comentario sobre mi primer sitio web:</p>
 
-           <form id="form-contacto">
+           <form id="form-contacto" action="guardar_contacto.php" method="post">
                 <label for="nombre">Nombre:</label><br>
-                <input type="text" id="nombre"><br><br>
+                <input type="text" id="nombre" name="nombre"><br><br>
 
                 <label for="correo">Correo electrónico:</label><br>
-                <input type="email" id="correo"><br><br>
+                <input type="email" id="correo" name="correo"><br><br>
 
                 <label for="motivo"> ¿Qué te pareció el sitio?</label><br>
                 <select id="motivo">
@@ -57,7 +58,7 @@
                 </select><br><br>
 
                 <label for="mensaje">Mensaje:</label><br>
-                <textarea id="mensaje" rows="4"></textarea><br><br>
+                <textarea id="mensaje" name="mensaje" rows="4"></textarea><br><br>
 
                 <label>
                     <input type="checkbox" id="confirmar"> Confirmo que mis datos son reales

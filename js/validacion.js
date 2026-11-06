@@ -22,5 +22,12 @@ formulario.addEventListener("submit", (event)=>{
     }
 
     alert("¡Formulario enviado correctamente!");
-    formulario.reset(); // Limpia el formulario tras enviarlo
+    // Si estamos en XAMPP (localhost), enviamos los datos a guardar_contacto.php
+    if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+        formulario.submit();
+    } else {
+        // Si estamos en GitHub Pages, solo limpiamos el formulario y mostramos un mensaje de éxito
+        formulario.reset();
+        alert("¡Formulario enviado correctamente! (Simulación en GitHub Pages)");
+    }    
 });

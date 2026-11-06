@@ -53,6 +53,39 @@ $resultado_mensajes = $conexion->query("SELECT * FROM mensajes_contacto ORDER BY
             </tbody>
 
         </table>
+        
+        <h2>2. Tabla: mensajes_contacto (Envíos del Formulario)</h2>
+        <table border="1" cellpadding="8" style="width: 100%; border-collapse: collapse">
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Mensaje</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php if ($resultado_mensajes->num_rows > 0) ?>
+                    <?php while($fila = $resultado_mensajes->fetch_assoc()): ?>
+                        <tr>
+                            <td><?php echo $msg["id"]; ?></td>
+                            <td><?php echo htmlspecialchars($msg["nombre"]); ?></td>
+                            <td><?php echo htmlspecialchars($msg["correo"]); ?></td>
+                            <td><?php echo htmlspecialchars($msg["mensaje"]); ?></td>
+                            <td><?php echo $msg["fecha"]; ?></td>
+                        </tr>
+                    <?php endwhile; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="5" style="text-align: center;">Aún no hay mensajes registrados.</td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+
+        </table>
 
     </main>
 
