@@ -68,8 +68,8 @@ $resultado_mensajes = $conexion->query("SELECT * FROM mensajes_contacto ORDER BY
             </thead>
 
             <tbody>
-                <?php if ($resultado_mensajes->num_rows > 0) ?>
-                    <?php while($fila = $resultado_mensajes->fetch_assoc()): ?>
+                <?php if ($resultado_mensajes->num_rows > 0): ?>
+                    <?php while($msg = $resultado_mensajes->fetch_assoc()): ?>
                         <tr>
                             <td><?php echo $msg["id"]; ?></td>
                             <td><?php echo htmlspecialchars($msg["nombre"]); ?></td>
