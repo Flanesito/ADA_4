@@ -1,33 +1,31 @@
 <?php
-require_once "conexion.php"; // Incluimos el archivo de conexion a la base de datos
+require_once "conexion.php";
 
-if ($_SERVER["REQUEST_METOD"] === "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $nombre = $_POST["nombre"] ?? "";
     $correo = $_POST["correo"] ?? "";
     $mensaje = $_POST["mensaje"] ?? "";
 
-    // Validamos que los campos no esten vacios
     if (!empty($nombre) && !empty($correo) && !empty($mensaje)) {
-        // Preparamos la consulta SQL para insertar los datos en la tabla mensajes_contacto
         $stmt = $conexion->prepare("INSERT INTO mensajes_contacto (nombre, correo, mensaje) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $nombre, $correo, $mensaje);
-
-        // Ejecutamos la consulta y verificamos si fue exitosa
-        if ($stmt->execute()) {
-            echo "Mensaje enviado correctamente.";
-        } else {
-            echo "Error al enviar el mensaje: " . $stmt->error;
+        
+        if (!$stmt) {
+            die("Error en la consulta SQL: " . $conexion->error);
         }
 
-        // Cerramos la declaración y la conexión
+        $stmt->bind_param("sss", $nombre, $correo, $mensaje);
+        
+        if (!$stmt->execute()) {
+            die("Error al insertar en la BD: " . $stmt->error);
+        }
+        
         $stmt->close();
-        $conexion->close();
+        header("Location: panel_servidor.php");
+        exit;
     } else {
-        echo "Por favor, complete todos los campos del formulario.";
+        die("Llegaron datos vacíos a PHP. Datos recibidos: " . print_r($_POST, true));
     }
+} else {
+    die("No se recibió petición POST. Método recibido: " . $_SERVER["REQUEST_METHOD"]);
 }
-
-// Redirigir el panel para ver el mensaje recien guardado
-header("Location: panel_servidor.php");
-exit;
 ?>
